@@ -1,8 +1,6 @@
-alert("Warning!");
-
 // script.js
 
-// Example: Display a popup with a warning message and information about the extension
+// Display a popup with a warning message and information about the extension
 const popupHtml = `
   <div id="wise-popup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background-color: white; border: 2px solid black;">
     <h2>WI$E Warning</h2>
