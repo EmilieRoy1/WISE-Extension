@@ -3,16 +3,16 @@
     "version": "1.0.0",
     "description": "",
     "manifest_version": 3,
-    "author": "people of canada",
+    "author": "people of Canada",
     "action": {
-        "default_popup": "index.html",
-        "default-title": "WI$E"
+      "default_popup": "index.html",
+      "default_title": "WI$E" 
     },
     "content_scripts": [
-        {
-            "matches": ["https://www.amazon.ca"],
-            "js": ["script.js"]
-    
-        }
+      {
+        "matches": ["https://www.amazon.ca"],
+        "js": ["script.js"]
+      }
     ]
-}
+  }
+  
