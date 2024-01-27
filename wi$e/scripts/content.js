@@ -58,7 +58,7 @@ document.body.insertAdjacentHTML('beforeend', popupHtml);
 popupHtml(0);
 
 // Add functionality to close the popup
-const closePopupButton = document.getElementById('close-popup');
+/*const closePopupButton = document.getElementById('close-popup');
 const continueButton = document.getElementById('continue');
 
 if (closePopupButton) {
@@ -105,4 +105,4 @@ if (closePopupButton) {
 } else {
   //timer and loop back to question
   popupHtml(0);
-}
+}*/
