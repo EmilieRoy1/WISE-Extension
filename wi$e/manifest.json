@@ -9,7 +9,7 @@
     "action": {
       "default_popup": "prompt.html",
       "default_icon": {
-        "859": "images/Wise_logo.jpg"
+        "128": "images/icon-128.png"
       }
     },
     "icons": {
