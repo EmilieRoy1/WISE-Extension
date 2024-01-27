@@ -1,3 +1,11 @@
 {
-    
+    "name": "WI$E",
+    "version": "1.0.0",
+    "description": "",
+    "manifest_version": 3,
+    "author": "people of canada",
+    "action": {
+        "default_popup": "index.html",
+        "default-title": "WI$E"
+    }
 }
