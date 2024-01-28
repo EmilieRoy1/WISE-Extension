@@ -17,7 +17,7 @@ function showPopup(index) {
 
   const popupHtml = `
     <div id="wise-popup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; color: white; background-color: red; border: 20px solid white; border-style: dashed; border-radius: 10px;">
-      <h1 style="font-size: 300%; text-align: center;">WI$E Reminder!</h1>
+      <h1 style="font-size: 300%; text-align: center;">WI$E Reminder!<br></h1>
       <h2 style="font-size: 200%; text-align: center;">${questions[index]}</h2>
       <div style="text-align: center;">
         <button id="close-popup">No</button>
