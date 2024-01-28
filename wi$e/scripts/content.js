@@ -95,6 +95,11 @@ function showPopup(index) {
 
         function updateCountdown() {
           const timerElement = document.getElementById('timer');
+          
+          if(!timerElement) {
+            clearInterval(interval);
+            return;
+          }
 
           if (seconds <= 0) {
             clearInterval(interval);
