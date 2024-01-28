@@ -32,7 +32,7 @@ function showPopup(index) {
   domain = domain.replace('http://','').replace('https://','').replace('www.','').split(/[/?#]/)[0];
 
   const popupHtml = `
-    <div id="wise-popup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; color: green; background-color: white; border: 2px solid black; width: 500px; max-width: 80%; border-radius: 10px;">
+    <div id="wise-popup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; color: green; background-color: white; border: 2px solid black; width: 500px; max-width: 80%; border-radius: 10px; z-index: 1000;">
       <h1 style="font-size: 300%; text-align: center;">WI$E Reminder!<br></h1>
       <h2 style="font-size: 200%; text-align: center;">${questions[index]}</h2>
         <div style="text-align: center; margin-top: 20px;"> <!-- Add margin-top for spacing -->
@@ -101,9 +101,9 @@ function showPopup(index) {
 
 function showTimerPopup(index, notSureButton) {
   showOverlay();
-  
+
   const timerPopupHtml = `
-    <div id="timer-popup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; color: white; background-color: black; border: 2px solid white; width: 200px; text-align: center; border-radius: 10px;">
+    <div id="timer-popup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; color: white; background-color: black; border: 2px solid white; width: 200px; text-align: center; border-radius: 10px; z-index: 1000;">
       <h1 style="font-size: 200%;">Take some time to think...</h1>
       <div id="timer">10s</div>
     </div>
