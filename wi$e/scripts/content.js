@@ -41,7 +41,11 @@ function showPopup(index) {
       continueButton.addEventListener('click', () => {
         document.getElementById('wise-popup').remove();
         // Redirect the user to another website
-        window.location.href = "https://www.tiktok.com/@sadgrlswag/video/7191631951827307822";
+        if (index == 4) {
+          window.location.href = "https://thegirlintheocean.com/eco-friendly-montreal-sustainable-shopping/#";
+        } else {
+          window.location.href = "https://www.tiktok.com/@sadgrlswag/video/7191631951827307822";
+        }
       });
   
       closePopupButton.addEventListener('click', () => {
@@ -56,7 +60,7 @@ function showPopup(index) {
     closePopupButton.addEventListener('click', () => {
       document.getElementById('wise-popup').remove();
       // Redirect the user to another website
-      window.location.href = "https://www.tiktok.com/@sadgrlswag/video/7191631951827307822";
+      window.location.href = "https://google.com";
     });
 
     continueButton.addEventListener('click', () => {
