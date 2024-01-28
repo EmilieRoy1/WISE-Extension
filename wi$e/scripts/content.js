@@ -10,8 +10,24 @@ const questions = [
   "Are you open to a more sustainable option?"
 ];
 
+function showOverlay() {
+  const overlayHtml = `
+  <div id="overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999;"></div>
+  `;
+  document.body.insertAdjacentHTML('beforeend', overlayHtml);
+}
+
+function removeOverlay() {
+  const overlay = document.getElementById('overlay');
+  if(overlay) {
+    overlay.remove();
+  }
+}
+
 // Display a popup with a warning message and information about the extension
 function showPopup(index) {
+  showOverlay();
+
   var domain = window.location.hostname;
   domain = domain.replace('http://','').replace('https://','').replace('www.','').split(/[/?#]/)[0];
 
@@ -38,6 +54,7 @@ function showPopup(index) {
     if(index == 1 || index == 4) {
       continueButton.addEventListener('click', () => {
         document.getElementById('wise-popup').remove();
+        removeOverlay();
         // Redirect the user to another website
         if (index == 4) {
           window.location.href = "https://thegirlintheocean.com/eco-friendly-montreal-sustainable-shopping/#";
@@ -48,6 +65,7 @@ function showPopup(index) {
   
       closePopupButton.addEventListener('click', () => {
         document.getElementById('wise-popup').remove();
+        removeOverlay();
         if(index < questions.length - 1) {
           showPopup(index + 1)
         } else {
@@ -57,12 +75,14 @@ function showPopup(index) {
     } else {
     closePopupButton.addEventListener('click', () => {
       document.getElementById('wise-popup').remove();
+      removeOverlay();
       // Redirect the user to another website
       window.location.href = "https://google.com";
     });
 
     continueButton.addEventListener('click', () => {
       document.getElementById('wise-popup').remove();
+      removeOverlay();
       if(index < questions.length - 1) {
         showPopup(index + 1)
       } else {
@@ -73,12 +93,15 @@ function showPopup(index) {
     }
     notSureButton.addEventListener('click', () => {
       document.getElementById('wise-popup').remove();
+      removeOverlay();
       showTimerPopup(index, notSureButton);
     });
   }
 }
 
 function showTimerPopup(index, notSureButton) {
+  showOverlay();
+  
   const timerPopupHtml = `
     <div id="timer-popup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; color: white; background-color: black; border: 2px solid white; width: 200px; text-align: center; border-radius: 10px;">
       <h1 style="font-size: 200%;">Take some time to think...</h1>
