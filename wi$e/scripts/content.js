@@ -70,6 +70,7 @@ function showPopup(index) {
           showPopup(index + 1)
         } else {
           //at end of questions
+          removeOverlay();
         }
       });
     } else {
