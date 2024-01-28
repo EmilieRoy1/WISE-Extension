@@ -74,26 +74,48 @@ function showPopup(index) {
     notSureButton.addEventListener('click', () => {
       document.getElementById('wise-popup').remove();
       //timer
-      // JavaScript code for the 10-Second Countdown Timer
+ 
+      // Function to create and show the timer popup with countdown
+      function showTimerPopup() {
+        const timerPopupHtml = `
+          <div id="timer-popup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; color: white; background-color: black; border: 2px solid white; width: 200px; text-align: center; border-radius: 10px;">
+            <h1 style="font-size: 200%;">Timer</h1>
+            <div id="timer">10s</div>
+            <button id="close-timer">Close</button>
+          </div>
+        `;
 
-      // Set the initial countdown value
-      let seconds = 10;
+        // Inject the timer HTML into the page
+        document.body.insertAdjacentHTML('beforeend', timerPopupHtml);
 
-      // Update the countdown every 1 second
-      const interval = setInterval(updateCountdown, 1000);
+        let seconds = 10;
 
-      // Function to update the countdown
-      function updateCountdown() {
-        const timerElement = document.getElementById('timer');
+        // Update the countdown every 1 second
+        const interval = setInterval(updateCountdown, 1000);
 
-        if (seconds <= 0) {
-          clearInterval(interval);
-          timerElement.innerHTML = 'Countdown expired!';
-        } else {
-          timerElement.innerHTML = `${seconds}s`;
-          seconds--;
+        function updateCountdown() {
+          const timerElement = document.getElementById('timer');
+
+          if (seconds <= 0) {
+            clearInterval(interval);
+            timerElement.innerHTML = 'Countdown expired!';
+          } else {
+            timerElement.innerHTML = `${seconds}s`;
+            seconds--;
+          }
+        }
+
+        // Add event listener to close the timer popup
+        const closeTimerButton = document.getElementById('close-timer');
+        if (closeTimerButton) {
+          closeTimerButton.addEventListener('click', () => {
+            document.getElementById('timer-popup').remove();
+          });
         }
       }
+
+      showTimerPopup();
+
 
       showPopup(index);
     });
