@@ -20,8 +20,10 @@
         {
           "matches": [
             "https://www.sephora.com/*",
-            "https://adidas.ca/*",
-            "https://*.shein.com/*"
+            "https://www.adidas.ca/*",
+            "https://*.shein.com/*",
+            "https://www.aritzia.com/*",
+            "https://www.garageclothing.com/*"
           ],
           "exclude_globs":["*checkout*"],
           "js": ["scripts/content.js"],
@@ -30,8 +32,11 @@
         {
           "matches": [
             "https://www.sephora.com/ca/en/*",
-            "https://adidas.ca/*",
-            "https://ca.shein.com/*"
+            "https://www.adidas.ca/*",
+            "https://ca.shein.com/*",
+            "https://www.aritzia.com/en/*",
+            "https://www.garageclothing.com/ca/*"
+
           ],
           "exclude_globs": ["<all_urls>"],
           "include_globs": ["*checkout*"],
