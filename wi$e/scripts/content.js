@@ -73,12 +73,12 @@ function showPopup(index) {
     }
     notSureButton.addEventListener('click', () => {
       document.getElementById('wise-popup').remove();
-      showTimerPopup(index);
+      showTimerPopup(index, notSureButton);
     });
   }
 }
 
-function showTimerPopup(index) {
+function showTimerPopup(index, notSureButton) {
   const timerPopupHtml = `
     <div id="timer-popup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; color: white; background-color: black; border: 2px solid white; width: 200px; text-align: center; border-radius: 10px;">
       <h1 style="font-size: 200%;">Take some time to think...</h1>
@@ -114,10 +114,10 @@ function showTimerPopup(index) {
   }
 
   //reset timer
-  //notSureButton.addEventListener('click', () => {
-    //clearInterval(interval);
-    //showTimerPopup(index);
-  //});
+  notSureButton.addEventListener('click', () => {
+    clearInterval(interval);
+    showTimerPopup(index);
+  });
 }
 
 // Initial popup
