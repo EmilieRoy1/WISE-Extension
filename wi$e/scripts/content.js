@@ -126,8 +126,10 @@ function showTimerPopup(index, notSureButton) {
 // Initial popup
 showPopup(0);
 
-// Initialize the chatbot
-const chatbot = new OpenAIChatbot({ apiKey: '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' });
+// content.js
+
+// OpenAI API Key
+const apiKey = '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';
 
 // Add an event listener to handle extension click
 chrome.browserAction.onClicked.addListener(function (tab) {
@@ -135,21 +137,43 @@ chrome.browserAction.onClicked.addListener(function (tab) {
   const currentUrl = tab.url;
 
   // Open a chat window or modal
-  chatbot.openChatWindow({
-    context: `Ask about sustainability on ${currentUrl}`,
-    // Additional options or customization can be added here
-  });
-});
+  const chatbotWindow = window.open('', '_blank');
+  chatbotWindow.document.write(`
+    <html>
+      <body>
+        <h1>Chat with ChatGPT</h1>
+        <div id="chat"></div>
+        <input type="text" id="userInput" />
+        <button onclick="sendMessage()">Send</button>
+        <script>
+          const chatbot = new OpenAIChatbot({ apiKey: '${apiKey}' });
+          const chatDiv = document.getElementById('chat');
 
-// Handle user interactions with the chatbot
-// Example: Send a message to the chatbot and display the response
-const userMessage = "Tell me about the sustainability practices of this company.";
-chatbot.sendMessage(userMessage)
-  .then(response => {
-    console.log("Bot Response:", response);
-    // You can handle the response as needed (e.g., display in the chat window)
-  })
-  .catch(error => {
-    console.error("Error:", error);
-    // Handle errors
-  });
+          function appendMessage(sender, message) {
+            const messageElement = document.createElement('p');
+            messageElement.textContent = \`\${sender}: \${message}\`;
+            chatDiv.appendChild(messageElement);
+          }
+
+          function sendMessage() {
+            const userInput = document.getElementById('userInput').value;
+            appendMessage('You', userInput);
+
+            // Send user message to ChatGPT
+            chatbot.sendMessage(userInput)
+              .then(response => {
+                appendMessage('ChatGPT', response);
+              })
+              .catch(error => {
+                console.error('Error:', error);
+                appendMessage('ChatGPT', 'Error occurred while processing your request.');
+              });
+
+            // Clear input field
+            document.getElementById('userInput').value = '';
+          }
+        </script>
+      </body>
+    </html>
+  `);
+});
