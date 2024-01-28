@@ -93,10 +93,9 @@ function showTimerPopup(index, notSureButton) {
 
   // Update the countdown every 1 second
   const interval = setInterval(updateCountdown, 1000);
-
+  const timerElement = document.getElementById('timer');
+  
   function updateCountdown() {
-    const timerElement = document.getElementById('timer');
-    
     if(!timerElement) {
       clearInterval(interval);
       return;
@@ -109,7 +108,7 @@ function showTimerPopup(index, notSureButton) {
         //your code to be executed after 1 second
         // After the timer expires, show the same question
         showPopup(index);
-      }, 3000);
+      }, 2000);
     } else {
       timerElement.innerHTML = `${seconds}s`;
       seconds--;
