@@ -105,6 +105,9 @@ function showTimerPopup(index, notSureButton) {
     if (seconds <= 0) {
       clearInterval(interval);
       timerElement.innerHTML = 'Times Up!';
+      setTimeout(function() {
+        //your code to be executed after 1 second
+      }, 1000);
       // After the timer expires, show the same question
       showPopup(index);
     } else {
