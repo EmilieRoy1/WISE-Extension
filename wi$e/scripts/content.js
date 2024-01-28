@@ -81,7 +81,7 @@ function showPopup(index) {
 function showTimerPopup(index) {
   const timerPopupHtml = `
     <div id="timer-popup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; color: white; background-color: black; border: 2px solid white; width: 200px; text-align: center; border-radius: 10px;">
-      <h1 style="font-size: 200%;">Timer</h1>
+      <h1 style="font-size: 200%;">Take some time to think...</h1>
       <div id="timer">10s</div>
     </div>
   `;
@@ -104,11 +104,11 @@ function showTimerPopup(index) {
 
     if (seconds <= 0) {
       clearInterval(interval);
-      timerElement.innerHTML = 'Countdown expired!';
+      timerElement.innerHTML = 'Times Up!';
       // After the timer expires, show the same question
       showPopup(index);
     } else {
-      timerElement.innerHTML = `${seconds}s`;
+      //timerElement.innerHTML = `${seconds}s`;
       seconds--;
     }
   }
