@@ -114,10 +114,10 @@ function showTimerPopup(index) {
   }
 
   //reset timer
-  notSureButton.addEventListener('click', () => {
-    clearInterval(interval);
-    showTimerPopup(index);
-  });
+  //notSureButton.addEventListener('click', () => {
+    //clearInterval(interval);
+    //showTimerPopup(index);
+  //});
 }
 
 // Initial popup
