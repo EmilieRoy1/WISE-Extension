@@ -17,7 +17,7 @@ function showPopup(index) {
 
   const popupHtml = `
     <div id="wise-popup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; color: green; background-color: white; border: 2px solid black; width: 500px; max-width: 80%; border-radius: 10px;">
-      <img src="images/Wise_logo_updated.png" style="position: absolute; top: 10px; right: 10px; width: 30px; height: 30px;" alt="Logo">
+      <img src="wi$e/images/Wise_logo_updated.png" style="position: absolute; top: 10px; right: 10px; width: 30px; height: 30px;" alt="Logo">
       <h1 style="font-size: 300%; text-align: center;">WI$E Reminder!<br></h1>
       <h2 style="font-size: 200%; text-align: center;">${questions[index]}</h2>
         <div style="text-align: center; margin-top: 20px;"> <!-- Add margin-top for spacing -->
