@@ -109,7 +109,7 @@ function showTimerPopup(index, notSureButton) {
         //your code to be executed after 1 second
         // After the timer expires, show the same question
         showPopup(index);
-      }, 1000);
+      }, 3000);
     } else {
       timerElement.innerHTML = `${seconds}s`;
       seconds--;
