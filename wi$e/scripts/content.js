@@ -21,7 +21,7 @@ var myid = chrome.i18n.getMessage("@@extension_id");
 
 const questions = [
   "Are you making a WI$E purchase?",
-  "Is this an impulse buy?",
+  "Are you sure this is not an impulse buy?",
   "Will this purchase bring you joy?",
   "Do you really need this?",
   "Are you open to a more sustainable option?"
@@ -54,14 +54,48 @@ function showPopup(index) {
 
   const closePopupButton = document.getElementById('close-popup');
   const continueButton = document.getElementById('continue');
+  const notSureButton = document.getElementById('not-sure');
 
-  if (closePopupButton) {
+  if (closePopupButton && continueButton && notSureButton) {
+    if(index == 1 || index == 4) {
+      continueButton.addEventListener('click', () => {
+        document.getElementById('wise-popup').remove();
+        // Redirect the user to another website
+        window.location.href = "https://www.tiktok.com/@sadgrlswag/video/7191631951827307822";
+      });
+  
+      closePopupButton.addEventListener('click', () => {
+        document.getElementById('wise-popup').remove();
+        if(index < questions.length - 1) {
+          showPopup(index + 1)
+        } else {
+          //at end of questions
+        }
+      });
+    } else {
     closePopupButton.addEventListener('click', () => {
       document.getElementById('wise-popup').remove();
+      // Redirect the user to another website
+      window.location.href = "https://www.tiktok.com/@sadgrlswag/video/7191631951827307822";
     });
-    // Redirect the user to another website
-    window.location.href = "https://www.tiktok.com/@sadgrlswag/video/7191631951827307822";
-  } else if (continueButton) {
+
+    continueButton.addEventListener('click', () => {
+      document.getElementById('wise-popup').remove();
+      if(index < questions.length - 1) {
+        showPopup(index + 1)
+      } else {
+        //at end of questions
+      }
+    });
+
+    }
+    notSureButton.addEventListener('click', () => {
+      document.getElementById('wise-popup').remove();
+      //timer
+      showPopup(index);
+    });
+  }
+};/* else if (continueButton) {
     showPopup(1);
     if(closePopupButton) {
       showPopup(2);
@@ -116,7 +150,7 @@ function showPopup(index) {
     showPopup(0);
   }
 
-};
+};*/
 showPopup(0);
 
 /*if (closePopupButton) {
@@ -174,4 +208,5 @@ if (closePopupButton) {
 } else {
   //timer and loop back to question
   popupHtml(0);
-}*/
+}
+*/
