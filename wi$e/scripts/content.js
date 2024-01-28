@@ -19,10 +19,10 @@ function showPopup(index) {
     <div id="wise-popup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; color: white; background-color: red; border: 20px solid white; border-style: dashed; border-radius: 10px;">
       <h1 style="font-size: 300%; text-align: center;">WI$E Reminder!<br></h1>
       <h2 style="font-size: 200%; text-align: center;">${questions[index]}</h2>
-      <div style="text-align: center;">
-        <button id="close-popup">No</button>
-        <button id="continue">Yes</button>
-        <button id="not-sure">I'm not sure</button>
+      <div style="text-align: center; margin-top: 20px;"> <!-- Add margin-top for spacing -->
+        <button id="close-popup" style="border: 2px solid white; padding: 10px; margin-right: 10px;">No</button>
+        <button id="continue" style="border: 2px solid white; padding: 10px; margin-right: 10px;">Yes</button>
+        <button id="not-sure" style="border: 2px solid white; padding: 10px;">I'm not sure</button>
       </div>
     </div>
   `;
