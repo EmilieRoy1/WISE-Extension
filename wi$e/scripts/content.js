@@ -94,18 +94,11 @@ function showPopup(index) {
         const interval = setInterval(updateCountdown, 1000);
 
         function updateCountdown() {
-          const timerElement = document.getElementById('timer');
-          
-          if(!timerElement) {
-            clearInterval(interval);
-            return;
-          }
-
           if (seconds <= 0) {
             clearInterval(interval);
-            timerElement.innerHTML = 'Countdown expired!';
+            document.getElementById('timer').innerHTML = 'Countdown expired!';
           } else {
-            timerElement.innerHTML = `${seconds}s`;
+            document.getElementById('timer').innerHTML = `${seconds}s`;
             seconds--;
           }
         }
