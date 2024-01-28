@@ -112,6 +112,12 @@ function showTimerPopup(index) {
       seconds--;
     }
   }
+
+  //reset timer
+  notSureButton.addEventListener('click', () => {
+    clearInterval(interval);
+    showTimerPopup(index);
+  });
 }
 
 // Initial popup
