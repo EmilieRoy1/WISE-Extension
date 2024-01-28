@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10-Second Countdown Timer</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>10-Second Countdown Timer</h1>
+  <div id="timer">10s</div>
+
+  <script>
+    let seconds = 10;
+
+    // Update the countdown every 1 second
+    const interval = setInterval(updateCountdown, 1000);
+
+    function updateCountdown() {
+      if (seconds <= 0) {
+        clearInterval(interval);
+        document.getElementById('timer').innerHTML = 'Countdown expired!';
+      } else {
+        document.getElementById('timer').innerHTML = `${seconds}s`;
+        seconds--;
+      }
+    }
+  </script>
+
+</body>
+</html>
