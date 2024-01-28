@@ -108,7 +108,7 @@ function showTimerPopup(index) {
       // After the timer expires, show the same question
       showPopup(index);
     } else {
-      //timerElement.innerHTML = `${seconds}s`;
+      timerElement.innerHTML = `${seconds}s`;
       seconds--;
     }
   }
