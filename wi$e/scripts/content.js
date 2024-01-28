@@ -77,6 +77,7 @@ function showPopup(index) {
     notSureButton.addEventListener('click', () => {
       document.getElementById('wise-popup').remove();
       //timer
+      document.getElementById("counter");
       showPopup(index);
     });
   }
