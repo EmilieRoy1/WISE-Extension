@@ -124,3 +124,31 @@ function showTimerPopup(index, notSureButton) {
 
 // Initial popup
 showPopup(0);
+
+// Initialize the chatbot
+const chatbot = new OpenAIChatbot({ apiKey: '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' });
+
+// Add an event listener to handle extension click
+chrome.browserAction.onClicked.addListener(function (tab) {
+  // Get the current URL or relevant information
+  const currentUrl = tab.url;
+
+  // Open a chat window or modal
+  chatbot.openChatWindow({
+    context: `Ask about sustainability on ${currentUrl}`,
+    // Additional options or customization can be added here
+  });
+});
+
+// Handle user interactions with the chatbot
+// Example: Send a message to the chatbot and display the response
+const userMessage = "Tell me about the sustainability practices of this company.";
+chatbot.sendMessage(userMessage)
+  .then(response => {
+    console.log("Bot Response:", response);
+    // You can handle the response as needed (e.g., display in the chat window)
+  })
+  .catch(error => {
+    console.error("Error:", error);
+    // Handle errors
+  });
