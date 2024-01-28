@@ -74,7 +74,27 @@ function showPopup(index) {
     notSureButton.addEventListener('click', () => {
       document.getElementById('wise-popup').remove();
       //timer
-      document.getElementById("counter");
+      // JavaScript code for the 10-Second Countdown Timer
+
+      // Set the initial countdown value
+      let seconds = 10;
+
+      // Update the countdown every 1 second
+      const interval = setInterval(updateCountdown, 1000);
+
+      // Function to update the countdown
+      function updateCountdown() {
+        const timerElement = document.getElementById('timer');
+
+        if (seconds <= 0) {
+          clearInterval(interval);
+          timerElement.innerHTML = 'Countdown expired!';
+        } else {
+          timerElement.innerHTML = `${seconds}s`;
+          seconds--;
+        }
+      }
+
       showPopup(index);
     });
   }
