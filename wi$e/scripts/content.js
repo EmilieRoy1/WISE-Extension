@@ -73,12 +73,13 @@ function showPopup(index) {
     }
     notSureButton.addEventListener('click', () => {
       document.getElementById('wise-popup').remove();
-      showTimerPopup(index);
+      showTimerPopup();
+      showPopup(index);
     });
   }
 }
 
-function showTimerPopup(index) {
+function showTimerPopup() {
   const timerPopupHtml = `
     <div id="timer-popup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; color: white; background-color: black; border: 2px solid white; width: 200px; text-align: center; border-radius: 10px;">
       <h1 style="font-size: 200%;">Timer</h1>
