@@ -73,6 +73,7 @@ function showPopup(index) {
           removeOverlay();
         }
       });
+      
     } else {
     closePopupButton.addEventListener('click', () => {
       document.getElementById('wise-popup').remove();
